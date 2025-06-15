@@ -1,15 +1,306 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Buy Seat</title>
-  </head>
-  <body>
-    <header>
-      <nav></nav>
-    </header>
-    <main></main>
-    <footer></footer>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buy Seat</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="stylesheet" href="global.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet" />
+  <style type="text/tailwindcss">
+    @theme {
+        --color-primary: #1dd100;
+        --color-secondary: #030712;
+      }
+    </style>
+</head>
+
+<body class="m-auto max-w-7xl">
+  <header class="m-auto max-w-6xl">
+    <nav class="flex items-center raleway justify-between p-4">
+      <div>
+        <h1 class="font-bold text-4xl uppercase">
+          Buy<span class="text-primary"> Seat</span>
+        </h1>
+      </div>
+      <div>
+        <ul class="flex gap-10 text-lg">
+          <li>Home</li>
+          <li>Abaut</li>
+          <li>Destination</li>
+          <li>Search</li>
+        </ul>
+      </div>
+      <div>
+        <button
+          class="px-7 flex justify-center items-center gap-2 py-2 border text-primary border-[#1DD10066] rounded-md bg-[#1DD1001A] font-bold text-xl">
+          Bus <span><img src="./images/bus-icon.png" alt="Bus Icon" /></span>
+        </button>
+      </div>
+    </nav>
+    <div class="w-full h-[600px] bg-[url(./images/banner.png)] bg-no-repeat bg-contain bg-center space-y-10 pt-28">
+      <div class="space-y-10">
+        <h1 class="font-extrabold raleway text-center text-white text-6xl">
+          End-to-End Travel with
+        </h1>
+        <h1 class="text-primary font-extrabold raleway text-center text-6xl">
+          B Paribahan
+        </h1>
+        <p class="text-center text-white text-xl mt-4">
+          Yes, you can run unit tests and view the results directly within the
+          <br />
+          app. The integrated testing features allow for a streamlined .
+        </p>
+      </div>
+      <div class="text-center">
+        <button class="bg-primary px-8 p-4 rounded-md font-semibold">
+          Buy Tickets
+        </button>
+      </div>
+
+      <!-- progras card -->
+      <div class="flex justify-center gap-10">
+        <div class="flex w-[300px] items-center bg-white rounded-3xl gap-5 border-b-[4px] border-primary p-5">
+          <div><img src="./images/people.png" alt="user icon" /></div>
+          <div class="space-y-4">
+            <h2 class="font-bold text-4xl text-secondary">500k+</h2>
+            <p class="text-secondary/30">Registered users</p>
+          </div>
+        </div>
+
+        <div class="flex w-[300px] items-center bg-white rounded-3xl gap-5 border-b-[4px] border-primary p-5">
+          <div><img src="./images/ticket-cupon.png" alt="user icon" /></div>
+          <div class="space-y-4">
+            <h2 class="font-bold text-4xl text-secondary">1.7 lacks+</h2>
+            <p class="text-secondary/30">Tickets sold</p>
+          </div>
+        </div>
+
+        <div class="flex w-[300px] items-center bg-white rounded-3xl gap-5 border-b-[4px] border-primary p-5">
+          <div><img src="./images/stoppage.png" alt="user icon" /></div>
+          <div class="space-y-4">
+            <h2 class="font-bold text-4xl text-secondary">80K+</h2>
+            <p class="text-secondary/30">Rental partners</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="mt-32 space-y-12">
+    <section class="m-auto max-w-6xl">
+      <div class="space-y-12">
+        <h1 class="raleway text-secondary text-4xl font-bold text-center">
+          Best offers for you
+        </h1>
+        <div class="flex gap-8 justify-center">
+          <div class="bg-[#FFBF0F] w-full flex items-center rounded-3xl">
+            <div class="px-8 p-5 mr-12 space-y-3">
+              <h2 class="text-4xl text-secondary font-extrabold">15% OFF</h2>
+              <h3 class="text-xl text-secondary font-semibold">
+                on your next purchase
+              </h3>
+              <p class="text-secondary/60">use by January 2024</p>
+            </div>
+
+            <div class="object-contain">
+              <img class="h-52" src="./images/cupon-devider.png" alt="Coupon Devider" />
+            </div>
+            <div class="raleway flex flex-col justify-center gap-2 px-8 p-5">
+              <h2 class="text-secondary font-bold text-3xl">
+                NEW<sub>15</sub>
+              </h2>
+              <p class="text-secondary/60">Coupon Code</p>
+            </div>
+          </div>
+          <div class="bg-[#F78C9C] w-full flex items-center rounded-3xl">
+            <div class="px-8 p-5 mr-12 space-y-3">
+              <h2 class="text-4xl text-secondary font-extrabold">20% OFF</h2>
+              <h3 class="text-xl text-secondary font-semibold">
+                on your next purchase
+              </h3>
+              <p class="text-secondary/60">use by January 2024</p>
+            </div>
+
+            <div class="object-contain">
+              <img class="h-52" src="./images/cupon-devider.png" alt="Coupon Devider" />
+            </div>
+            <div class="raleway flex flex-col justify-center gap-2 px-8 p-5">
+              <h2 class="text-secondary font-bold text-3xl">
+                Couple<sub>20</sub>
+              </h2>
+              <p class="text-secondary/60">Coupon Code</p>
+            </div>
+          </div>
+        </div>
+        <div class="text-center">
+          <button class="px-6 py-3 rounded-lg border border-primary/30 text-primary">
+            See All Offer
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#F7F8F8] mt-12 border-t-2 border-primary rounded-t-[80px]">
+      <div class="mt-32 m-auto max-w-6xl space-y-10">
+        <div class="space-y-8">
+          <h1 class="raleway text-secondary text-4xl font-bold text-center">
+            P.H Paribahan
+          </h1>
+          <p class="px-64 text-center">
+            Yes, you can run unit tests and view the results directly within
+            the app. The integrated testing features allow for a streamlined .
+          </p>
+        </div>
+
+        <div class="flex justify-between bg-white rounded-xl">
+          <div class="space-y-10 p-8">
+            <div class="flex justify-between gap-5">
+              <div class="flex gap-3 items-center">
+                <div><img src="./images/bus-logo.png" alt="Bus Logo" /></div>
+                <div>
+                  <h2 class="font-bold text-secondary text-3xl">
+                    m-auto max-w-6xl
+                  </h2>
+                  <p>Coach-009-WEB ! AC_Business</p>
+                </div>
+              </div>
+              <div>
+                <button class="text-lg flex gap-2 font-semibold text-primary bg-primary/15 rounded-lg px-6 py-3">
+                  <img src="./images/seat-green.png" alt="Bus Seat" /><span>40</span>
+                  Seats left
+                </button>
+              </div>
+            </div>
+            <div class="p-8 bg-[#F7F8F8] text-secondary/60 rounded-xl">
+              <div class="flex justify-between pb-5 border-gray-400 border-b-2 border-dashed">
+                <h3>Route</h3>
+                <h3>Dhaka - Sylhet</h3>
+              </div>
+              <div class="flex justify-between py-5 border-gray-400 border-b-2 border-dashed">
+                <h3>Departure Time</h3>
+                <h3>9:00 PM</h3>
+              </div>
+              <div class="flex justify-between gap-8 pt-5">
+                <h3 class="px-9 py-3 bg-secondary/5 rounded-lg">
+                  Boarding Point - Laxmipur
+                </h3>
+                <h3 class="px-9 py-3 bg-secondary/5 rounded-lg">
+                  Dropping Point - Bogura
+                </h3>
+                <h3 class="px-9 py-3 bg-secondary/5 rounded-lg">
+                  Est. Time - 11 Hour
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <img class="h-full" src="./images/info-devider.png" alt="" />
+          </div>
+          <div class="flex flex-col items-center justify-center pr-7 flex-grow">
+            <img src="./images/fare.png" alt="" />
+            <div>
+              <h2 class="font-bold raleway text-center text-2xl">
+                <span>550</span>tk
+              </h2>
+              <p>Per Seat</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 bg-white rounded-2xl">
+          <h1 class="text-2xl font-semibold raleway pb-4 text-secondary border-b-2 border-dashed border-gray-400">
+            Select Your Seat
+          </h1>
+          <div class="flex justify-between py-4 border-b-2 border-dashed border-gray-400">
+            <div class="flex gap-2">
+              <img src="./images/seat-gray.png" alt="" />
+              <h2 class="text-gray-400">Available</h2>
+            </div>
+            <div class="flex gap-2">
+              <img src="./images/seat-green-filled.png" alt="" />
+              <h2 class="text-primary">Selected</h2>
+            </div>
+          </div>
+          <div class="py-4">
+            <button class="bg-secondary/10 rounded-md px-6 py-2">
+              <img src="./images/driver.png" alt="" />
+            </button>
+          </div>
+          <div class="flex gap-10">
+            <div class="">
+              <!-- Bus Seat A -->
+              <button class="">A</button>
+              <button id"A1" class="bg-secondary/5 rounded-md w-20 h-12">A1</button>
+              <button id"A2" class="bg-secondary/5 rounded-md w-20 h-12">A2</button>
+              <button id"A3" class="bg-secondary/5 rounded-md w-20 h-12">A3</button>
+              <button id"A4" class="bg-secondary/5 rounded-md w-20 h-12">A4</button>
+              <!-- Bus Seat B -->
+              <button class="">B</button>
+              <button id"B1" class="bg-secondary/5 rounded-md w-20 h-12">B1</button>
+              <button id"B2" class="bg-secondary/5 rounded-md w-20 h-12">B2</button>
+              <button id"B3" class="bg-secondary/5 rounded-md w-20 h-12">B3</button>
+              <button id"B4" class="bg-secondary/5 rounded-md w-20 h-12">B4</button>
+              <!-- Bus Seat C -->
+              <button class="">C</button>
+              <button id"C1" class="bg-secondary/5 rounded-md w-20 h-12">C1</button>
+              <button id"C2" class="bg-secondary/5 rounded-md w-20 h-12">C2</button>
+              <button id"C3" class="bg-secondary/5 rounded-md w-20 h-12">C3</button>
+              <button id"C4" class="bg-secondary/5 rounded-md w-20 h-12">C4</button>
+              <!-- Bus Seat D -->
+              <button class="">D</button>
+              <button id"D1" class="bg-secondary/5 rounded-md w-20 h-12">D1</button>
+              <button id"D2" class="bg-secondary/5 rounded-md w-20 h-12">D2</button>
+              <button id"D3" class="bg-secondary/5 rounded-md w-20 h-12">D3</button>
+              <button id"D4" class="bg-secondary/5 rounded-md w-20 h-12">D4</button>
+              <!-- Bus Seat E -->
+              <button class="">E</button>
+              <button id"E1" class="bg-secondary/5 rounded-md w-20 h-12">E1</button>
+              <button id"E2" class="bg-secondary/5 rounded-md w-20 h-12">E2</button>
+              <button id"E3" class="bg-secondary/5 rounded-md w-20 h-12">E3</button>
+              <button id"E4" class="bg-secondary/5 rounded-md w-20 h-12">E4</button>
+              <!-- Bus Seat F -->
+              <button class="">F</button>
+              <button id"F1" class="bg-secondary/5 rounded-md w-20 h-12">F1</button>
+              <button id"F2" class="bg-secondary/5 rounded-md w-20 h-12">F2</button>
+              <button id"F3" class="bg-secondary/5 rounded-md w-20 h-12">F3</button>
+              <button id"F4" class="bg-secondary/5 rounded-md w-20 h-12">F4</button>
+              <!-- Bus Seat G -->
+              <button class="">G</button>
+              <button id"G1" class="bg-secondary/5 rounded-md w-20 h-12">G1</button>
+              <button id"G2" class="bg-secondary/5 rounded-md w-20 h-12">G2</button>
+              <button id"G3" class="bg-secondary/5 rounded-md w-20 h-12">G3</button>
+              <button id"G4" class="bg-secondary/5 rounded-md w-20 h-12">G4</button>
+              <!-- Bus Seat H -->
+              <button class="">H</button>
+              <button id"H1" class="bg-secondary/5 rounded-md w-20 h-12">H1</button>
+              <button id"H2" class="bg-secondary/5 rounded-md w-20 h-12">H2</button>
+              <button id"H3" class="bg-secondary/5 rounded-md w-20 h-12">H3</button>
+              <button id"H4" class="bg-secondary/5 rounded-md w-20 h-12">H4</button>
+              <!-- Bus Seat I -->
+              <button class="">I</button>
+              <button id"I1" class="bg-secondary/5 rounded-md w-20 h-12">I1</button>
+              <button id"I2" class="bg-secondary/5 rounded-md w-20 h-12">I2</button>
+              <button id"I3" class="bg-secondary/5 rounded-md w-20 h-12">I3</button>
+              <button id"I4" class="bg-secondary/5 rounded-md w-20 h-12">I4</button>
+              <!-- Bus Seat J -->
+              <button class="">J</button>
+              <button id"J1" class="bg-secondary/5 rounded-md w-20 h-12">J1</button>
+              <button id"J2" class="bg-secondary/5 rounded-md w-20 h-12">J2</button>
+              <button id"J3" class="bg-secondary/5 rounded-md w-20 h-12">J3</button>
+              <button id"J4" class="bg-secondary/5 rounded-md w-20 h-12">J4</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer></footer>
+</body>
+
 </html>
