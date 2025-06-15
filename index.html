@@ -156,7 +156,7 @@
             the app. The integrated testing features allow for a streamlined .
           </p>
         </div>
-
+        <!-- Ticket Price  -->
         <div class="flex justify-between bg-white rounded-xl">
           <div class="space-y-10 p-8">
             <div class="flex justify-between gap-5">
@@ -212,88 +212,217 @@
             </div>
           </div>
         </div>
-
-        <div class="p-8 bg-white rounded-2xl">
-          <h1 class="text-2xl font-semibold raleway pb-4 text-secondary border-b-2 border-dashed border-gray-400">
-            Select Your Seat
-          </h1>
-          <div class="flex justify-between py-4 border-b-2 border-dashed border-gray-400">
-            <div class="flex gap-2">
-              <img src="./images/seat-gray.png" alt="" />
-              <h2 class="text-gray-400">Available</h2>
+        <!-- Buy seat -->
+        <div class="flex gap-8 p-8 bg-white rounded-2xl">
+          <!-- seat Plan -->
+          <div>
+            <h1 class="text-2xl font-semibold raleway pb-4 text-secondary border-b-2 border-dashed border-gray-400">
+              Select Your Seat
+            </h1>
+            <div class="flex justify-between py-4 border-b-2 border-dashed border-gray-400">
+              <div class="flex gap-2">
+                <img src="./images/seat-gray.png" alt="" />
+                <h2 class="text-gray-400">Available</h2>
+              </div>
+              <div class="flex gap-2">
+                <img src="./images/seat-green-filled.png" alt="" />
+                <h2 class="text-primary">Selected</h2>
+              </div>
             </div>
-            <div class="flex gap-2">
-              <img src="./images/seat-green-filled.png" alt="" />
-              <h2 class="text-primary">Selected</h2>
+            <div class="py-4 flex justify-end">
+              <button class="bg-secondary/10 flex justify-center items-center rounded-md w-24 h-14">
+                <img src="./images/driver.png" alt="" />
+              </button>
             </div>
-          </div>
-          <div class="py-4">
-            <button class="bg-secondary/10 rounded-md px-6 py-2">
-              <img src="./images/driver.png" alt="" />
-            </button>
-          </div>
-          <div class="flex gap-10">
-            <div class="">
+            <div class="flex flex-col gap-5 text font-semibold text-secondary/70">
               <!-- Bus Seat A -->
-              <button class="">A</button>
-              <button id"A1" class="bg-secondary/5 rounded-md w-20 h-12">A1</button>
-              <button id"A2" class="bg-secondary/5 rounded-md w-20 h-12">A2</button>
-              <button id"A3" class="bg-secondary/5 rounded-md w-20 h-12">A3</button>
-              <button id"A4" class="bg-secondary/5 rounded-md w-20 h-12">A4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">A</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"A1" class="bg-secondary/5 rounded-md w-24 h-14">A1</button>
+                    <button id"A2" class="bg-secondary/5 rounded-md w-24 h-14">A2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"A3" class="bg-secondary/5 rounded-md w-24 h-14">A3</button>
+                    <button id"A4" class="bg-secondary/5 rounded-md w-24 h-14">A4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat B -->
-              <button class="">B</button>
-              <button id"B1" class="bg-secondary/5 rounded-md w-20 h-12">B1</button>
-              <button id"B2" class="bg-secondary/5 rounded-md w-20 h-12">B2</button>
-              <button id"B3" class="bg-secondary/5 rounded-md w-20 h-12">B3</button>
-              <button id"B4" class="bg-secondary/5 rounded-md w-20 h-12">B4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">B</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"B1" class="bg-secondary/5 rounded-md w-24 h-14">B1</button>
+                    <button id"B2" class="bg-secondary/5 rounded-md w-24 h-14">B2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"B3" class="bg-secondary/5 rounded-md w-24 h-14">B3</button>
+                    <button id"B4" class="bg-secondary/5 rounded-md w-24 h-14">B4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat C -->
-              <button class="">C</button>
-              <button id"C1" class="bg-secondary/5 rounded-md w-20 h-12">C1</button>
-              <button id"C2" class="bg-secondary/5 rounded-md w-20 h-12">C2</button>
-              <button id"C3" class="bg-secondary/5 rounded-md w-20 h-12">C3</button>
-              <button id"C4" class="bg-secondary/5 rounded-md w-20 h-12">C4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">C</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"C1" class="bg-secondary/5 rounded-md w-24 h-14">C1</button>
+                    <button id"C2" class="bg-secondary/5 rounded-md w-24 h-14">C2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"C3" class="bg-secondary/5 rounded-md w-24 h-14">C3</button>
+                    <button id"C4" class="bg-secondary/5 rounded-md w-24 h-14">C4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat D -->
-              <button class="">D</button>
-              <button id"D1" class="bg-secondary/5 rounded-md w-20 h-12">D1</button>
-              <button id"D2" class="bg-secondary/5 rounded-md w-20 h-12">D2</button>
-              <button id"D3" class="bg-secondary/5 rounded-md w-20 h-12">D3</button>
-              <button id"D4" class="bg-secondary/5 rounded-md w-20 h-12">D4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">D</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"D1" class="bg-secondary/5 rounded-md w-24 h-14">D1</button>
+                    <button id"D2" class="bg-secondary/5 rounded-md w-24 h-14">D2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"D3" class="bg-secondary/5 rounded-md w-24 h-14">D3</button>
+                    <button id"D4" class="bg-secondary/5 rounded-md w-24 h-14">D4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat E -->
-              <button class="">E</button>
-              <button id"E1" class="bg-secondary/5 rounded-md w-20 h-12">E1</button>
-              <button id"E2" class="bg-secondary/5 rounded-md w-20 h-12">E2</button>
-              <button id"E3" class="bg-secondary/5 rounded-md w-20 h-12">E3</button>
-              <button id"E4" class="bg-secondary/5 rounded-md w-20 h-12">E4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">E</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"E1" class="bg-secondary/5 rounded-md w-24 h-14">E1</button>
+                    <button id"E2" class="bg-secondary/5 rounded-md w-24 h-14">E2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"E3" class="bg-secondary/5 rounded-md w-24 h-14">E3</button>
+                    <button id"E4" class="bg-secondary/5 rounded-md w-24 h-14">E4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat F -->
-              <button class="">F</button>
-              <button id"F1" class="bg-secondary/5 rounded-md w-20 h-12">F1</button>
-              <button id"F2" class="bg-secondary/5 rounded-md w-20 h-12">F2</button>
-              <button id"F3" class="bg-secondary/5 rounded-md w-20 h-12">F3</button>
-              <button id"F4" class="bg-secondary/5 rounded-md w-20 h-12">F4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">F</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"F1" class="bg-secondary/5 rounded-md w-24 h-14">F1</button>
+                    <button id"F2" class="bg-secondary/5 rounded-md w-24 h-14">F2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"F3" class="bg-secondary/5 rounded-md w-24 h-14">F3</button>
+                    <button id"F4" class="bg-secondary/5 rounded-md w-24 h-14">F4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat G -->
-              <button class="">G</button>
-              <button id"G1" class="bg-secondary/5 rounded-md w-20 h-12">G1</button>
-              <button id"G2" class="bg-secondary/5 rounded-md w-20 h-12">G2</button>
-              <button id"G3" class="bg-secondary/5 rounded-md w-20 h-12">G3</button>
-              <button id"G4" class="bg-secondary/5 rounded-md w-20 h-12">G4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">G</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"G1" class="bg-secondary/5 rounded-md w-24 h-14">G1</button>
+                    <button id"G2" class="bg-secondary/5 rounded-md w-24 h-14">G2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"G3" class="bg-secondary/5 rounded-md w-24 h-14">G3</button>
+                    <button id"G4" class="bg-secondary/5 rounded-md w-24 h-14">G4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat H -->
-              <button class="">H</button>
-              <button id"H1" class="bg-secondary/5 rounded-md w-20 h-12">H1</button>
-              <button id"H2" class="bg-secondary/5 rounded-md w-20 h-12">H2</button>
-              <button id"H3" class="bg-secondary/5 rounded-md w-20 h-12">H3</button>
-              <button id"H4" class="bg-secondary/5 rounded-md w-20 h-12">H4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">H</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"H1" class="bg-secondary/5 rounded-md w-24 h-14">H1</button>
+                    <button id"H2" class="bg-secondary/5 rounded-md w-24 h-14">H2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"H3" class="bg-secondary/5 rounded-md w-24 h-14">H3</button>
+                    <button id"H4" class="bg-secondary/5 rounded-md w-24 h-14">H4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat I -->
-              <button class="">I</button>
-              <button id"I1" class="bg-secondary/5 rounded-md w-20 h-12">I1</button>
-              <button id"I2" class="bg-secondary/5 rounded-md w-20 h-12">I2</button>
-              <button id"I3" class="bg-secondary/5 rounded-md w-20 h-12">I3</button>
-              <button id"I4" class="bg-secondary/5 rounded-md w-20 h-12">I4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">I</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"I1" class="bg-secondary/5 rounded-md w-24 h-14">I1</button>
+                    <button id"I2" class="bg-secondary/5 rounded-md w-24 h-14">I2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"I3" class="bg-secondary/5 rounded-md w-24 h-14">I3</button>
+                    <button id"I4" class="bg-secondary/5 rounded-md w-24 h-14">I4</button>
+                  </div>
+                </div>
+              </div>
+
               <!-- Bus Seat J -->
-              <button class="">J</button>
-              <button id"J1" class="bg-secondary/5 rounded-md w-20 h-12">J1</button>
-              <button id"J2" class="bg-secondary/5 rounded-md w-20 h-12">J2</button>
-              <button id"J3" class="bg-secondary/5 rounded-md w-20 h-12">J3</button>
-              <button id"J4" class="bg-secondary/5 rounded-md w-20 h-12">J4</button>
+              <div class="flex gap-5 justify-center items-center">
+                <button class="w-5 h-2">J</button>
+                <div class="flex gap-16">
+                  <div class="flex gap-10">
+                    <button id"J1" class="bg-secondary/5 rounded-md w-24 h-14">J1</button>
+                    <button id"J2" class="bg-secondary/5 rounded-md w-24 h-14">J2</button>
+                  </div>
+                  <div class="flex gap-10">
+                    <button id"J3" class="bg-secondary/5 rounded-md w-24 h-14">J3</button>
+                    <button id"J4" class="bg-secondary/5 rounded-md w-24 h-14">J4</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- border -->
+          <div class="border-r-2 border-dashed border-gray-400"></div>
+          <!-- calculating -->
+          <div class="flex-grow space-y-8">
+            <h2 class="text-2xl font-semibold raleway pb-4 text-secondary border-b-2 border-dashed border-gray-400">
+              Select Your Seat</h2>
+            <div class="p-8 bg-[#F7F8F8] rounded-xl space-y-5">
+              <div class="flex justify-between font-medium border-b border-dashed border-gray-400 pb-5">
+                <div>Seat <span class="px-3 text-white rounded-full bg-primary">2</span></div>
+                <div>class</div>
+                <div>Price</div>
+              </div>
+              <div class=" border-b border-gray-400 pb-4">
+                <div class="flex justify-between py-3">
+                  <div>C2</div>
+                  <div>Economoy</div>
+                  <div>550</div>
+                </div>
+                <div class="flex justify-between py-3">
+                  <div>C3</div>
+                  <div>Economoy</div>
+                  <div>550</div>
+                </div>
+              </div>
+              <div class="flex justify-between font-semibold">
+                <h1>Total Price</h1>
+                <h1>BDT <span>1100</span> tk</h1>
+              </div>
+              <div class="flex bg-white rounded-lg p-2">
+                <input class="w-full pl-4 focus:outline-none" type="text" name="text" id=""
+                  placeholder="Have any copupon?">
+                <button class="px-5 p-2 bg-primary font-bold text-white rounded-lg">Apply</button>
+              </div>
+              <div class="flex justify-between font-semibold">
+                <h1>TGrand Total</h1>
+                <h1>BDT <span>1100</span> tk</h1>
+              </div>
             </div>
           </div>
         </div>
