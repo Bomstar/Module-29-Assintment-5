@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bus Seat Booking System</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            bus: {
+              primary: '#2563eb',
+              secondary: '#1e40af',
+              aisle: '#f1f5f9',
+              selected: '#10b981',
+              occupied: '#ef4444',
+              available: '#d1d5db',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bus-seat {
+      transition: all 0.2s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .bus-seat:hover:not(.occupied) {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .bus-seat.selected {
+      box-shadow: 0 0 0 3px #10b981;
+    }
+
+    .bus-aisle {
+      background-image: linear-gradient(90deg, #e5e7eb 2px, transparent 2px);
+      background-size: 10px 100%;
+    }
+
+    .driver-area {
+      background: linear-gradient(to bottom, #1e293b, #0f172a);
+    }
+
+    .steering-wheel {
+      animation: steering 3s infinite ease-in-out;
+    }
+
+    @keyframes steering {
+
+      0%,
+      100% {
+        transform: rotate(-5deg);
+      }
+
+      50% {
+        transform: rotate(5deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+  <div class="max-w-4xl w-full">
+    <div class="text-center mb-8">
+      <h1 class="text-3xl md:text-4xl font-bold text-gray-800">Premium Bus Booking</h1>
+      <p class="text-gray-600 mt-2">Select your seats for the upcoming journey</p>
+    </div>
+
+    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+      <!-- Bus Header -->
+      <div class="driver-area py-4 px-6 flex items-center justify-between">
+        <div class="flex items-center">
+          <div class="steering-wheel w-12 h-12 rounded-full border-4 border-amber-400 flex items-center justify-center">
+            <div class="w-2 h-6 bg-amber-400 rounded"></div>
+          </div>
+          <div class="ml-4">
+            <h2 class="text-white text-xl font-bold">Express Deluxe</h2>
+            <p class="text-blue-200">Route: Downtown to Airport</p>
+          </div>
+        </div>
+        <div class="text-right">
+          <p class="text-white font-medium">Dep: 08:30 AM</p>
+          <p class="text-blue-200">15 June 2025</p>
+        </div>
+      </div>
+
+      <!-- Bus Body -->
+      <div class="p-6">
+        <div class="flex justify-between items-center mb-6">
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded-sm bg-bus-available mr-2"></div>
+            <span class="text-sm text-gray-600">Available</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded-sm bg-bus-selected mr-2"></div>
+            <span class="text-sm text-gray-600">Selected</span>
+          </div>
+          <div class="flex items-center">
+            <div class="w-4 h-4 rounded-sm bg-bus-occupied mr-2"></div>
+            <span class="text-sm text-gray-600">Occupied</span>
+          </div>
+        </div>
+
+        <div class="bus-container bg-bus-aisle rounded-xl p-4 relative overflow-hidden">
+          <!-- Aisle Markings -->
+          <div class="absolute inset-y-0 left-1/2 transform -translate-x-1/2 w-1 bg-yellow-400"></div>
+          <div class="absolute inset-y-0 left-1/2 transform -translate-x-1/2 flex flex-col justify-between py-4">
+            <div class="w-12 h-1 bg-yellow-400 rounded-full"></div>
+            <div class="w-12 h-1 bg-yellow-400 rounded-full"></div>
+            <div class="w-12 h-1 bg-yellow-400 rounded-full"></div>
+          </div>
+
+          <!-- Seat Grid -->
+          <div class="grid grid-cols-12 gap-2 relative z-10">
+            <!-- Left side seats -->
+            <div class="col-span-5 grid grid-cols-2 gap-2">
+              <!-- Row A -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="A1">
+                <span class="text-xs text-gray-500">A1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="A2">
+                <span class="text-xs text-gray-500">A2</span>
+              </div>
+
+              <!-- Row B -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="B1">
+                <span class="text-xs text-gray-500">B1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="B2">
+                <span class="text-xs text-gray-500">B2</span>
+              </div>
+
+              <!-- Row C -->
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="C1">
+                <span class="text-xs text-white">C1</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="C2">
+                <span class="text-xs text-gray-500">C2</span>
+              </div>
+
+              <!-- Row D -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="D1">
+                <span class="text-xs text-gray-500">D1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="D2">
+                <span class="text-xs text-white">D2</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+
+              <!-- Row E -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="E1">
+                <span class="text-xs text-gray-500">E1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="E2">
+                <span class="text-xs text-gray-500">E2</span>
+              </div>
+
+              <!-- Row F -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="F1">
+                <span class="text-xs text-gray-500">F1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="F2">
+                <span class="text-xs text-gray-500">F2</span>
+              </div>
+
+              <!-- Row G -->
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="G1">
+                <span class="text-xs text-white">G1</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="G2">
+                <span class="text-xs text-gray-500">G2</span>
+              </div>
+
+              <!-- Row H -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="H1">
+                <span class="text-xs text-gray-500">H1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="H2">
+                <span class="text-xs text-white">H2</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+
+              <!-- Row I -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="I1">
+                <span class="text-xs text-gray-500">I1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="I2">
+                <span class="text-xs text-gray-500">I2</span>
+              </div>
+
+              <!-- Row J -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="J1">
+                <span class="text-xs text-gray-500">J1</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="J2">
+                <span class="text-xs text-white">J2</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+            </div>
+
+            <!-- Aisle space -->
+            <div class="col-span-2"></div>
+
+            <!-- Right side seats -->
+            <div class="col-span-5 grid grid-cols-2 gap-2">
+              <!-- Row A -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="A3">
+                <span class="text-xs text-gray-500">A3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="A4">
+                <span class="text-xs text-gray-500">A4</span>
+              </div>
+
+              <!-- Row B -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="B3">
+                <span class="text-xs text-gray-500">B3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="B4">
+                <span class="text-xs text-gray-500">B4</span>
+              </div>
+
+              <!-- Row C -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="C3">
+                <span class="text-xs text-gray-500">C3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="C4">
+                <span class="text-xs text-white">C4</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+
+              <!-- Row D -->
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="D3">
+                <span class="text-xs text-white">D3</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="D4">
+                <span class="text-xs text-gray-500">D4</span>
+              </div>
+
+              <!-- Row E -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="E3">
+                <span class="text-xs text-gray-500">E3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="E4">
+                <span class="text-xs text-gray-500">E4</span>
+              </div>
+
+              <!-- Row F -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="F3">
+                <span class="text-xs text-gray-500">F3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="F4">
+                <span class="text-xs text-gray-500">F4</span>
+              </div>
+
+              <!-- Row G -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="G3">
+                <span class="text-xs text-gray-500">G3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="G4">
+                <span class="text-xs text-white">G4</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+
+              <!-- Row H -->
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="H3">
+                <span class="text-xs text-white">H3</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="H4">
+                <span class="text-xs text-gray-500">H4</span>
+              </div>
+
+              <!-- Row I -->
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="I3">
+                <span class="text-xs text-gray-500">I3</span>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="I4">
+                <span class="text-xs text-gray-500">I4</span>
+              </div>
+
+              <!-- Row J -->
+              <div
+                class="bus-seat bg-bus-occupied rounded-lg flex flex-col items-center justify-center p-2 cursor-not-allowed"
+                data-seat="J3">
+                <span class="text-xs text-white">J3</span>
+                <i class="fas fa-user text-white text-xs mt-1"></i>
+              </div>
+              <div
+                class="bus-seat bg-bus-available rounded-lg flex flex-col items-center justify-center p-2 cursor-pointer"
+                data-seat="J4">
+                <span class="text-xs text-gray-500">J4</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-between items-center mt-8">
+          <div class="text-gray-600">
+            <p class="font-medium">Selected Seats: <span id="selected-seats" class="font-bold">None</span></p>
+            <p class="text-sm">Total: <span id="total-price" class="font-bold">$0.00</span></p>
+          </div>
+          <div>
+            <button id="reset-btn"
+              class="bg-gray-200 text-gray-700 px-6 py-2 rounded-lg mr-3 font-medium hover:bg-gray-300 transition">
+              Reset
+            </button>
+            <button id="book-btn"
+              class="bg-bus-primary text-white px-6 py-2 rounded-lg font-medium hover:bg-bus-secondary transition">
+              Book Seats
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-8 text-center text-gray-600 text-sm">
+      <p>© 2025 Premium Bus Booking System. All rights reserved.</p>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const seats = document.querySelectorAll('.bus-seat:not(.bg-bus-occupied)');
+      const selectedSeatsElement = document.getElementById('selected-seats');
+      const totalPriceElement = document.getElementById('total-price');
+      const resetButton = document.getElementById('reset-btn');
+      const bookButton = document.getElementById('book-btn');
+
+      let selectedSeats = [];
+      const seatPrice = 12.50;
+
+      seats.forEach(seat => {
+        seat.addEventListener('click', () => {
+          const seatNumber = seat.getAttribute('data-seat');
+
+          if (selectedSeats.includes(seatNumber)) {
+            // Deselect seat
+            selectedSeats = selectedSeats.filter(s => s !== seatNumber);
+            seat.classList.remove('bg-bus-selected', 'selected');
+            seat.classList.add('bg-bus-available');
+          } else {
+            // Select seat
+            selectedSeats.push(seatNumber);
+            seat.classList.remove('bg-bus-available');
+            seat.classList.add('bg-bus-selected', 'selected');
+          }
+
+          updateSelection();
+        });
+      });
+
+      resetButton.addEventListener('click', () => {
+        selectedSeats = [];
+        seats.forEach(seat => {
+          if (seat.classList.contains('bg-bus-selected')) {
+            seat.classList.remove('bg-bus-selected', 'selected');
+            seat.classList.add('bg-bus-available');
+          }
+        });
+        updateSelection();
+      });
+
+      bookButton.addEventListener('click', () => {
+        if (selectedSeats.length > 0) {
+          alert(`Successfully booked seat(s): ${selectedSeats.join(', ')}!\nTotal: $${(selectedSeats.length * seatPrice).toFixed(2)}`);
+          selectedSeats = [];
+          updateSelection();
+
+          // Reset UI
+          seats.forEach(seat => {
+            if (seat.classList.contains('bg-bus-selected')) {
+              seat.classList.remove('bg-bus-selected', 'selected');
+              seat.classList.add('bg-bus-available');
+            }
+          });
+        } else {
+          alert('Please select at least one seat!');
+        }
+      });
+
+      function updateSelection() {
+        if (selectedSeats.length > 0) {
+          selectedSeatsElement.textContent = selectedSeats.join(', ');
+          totalPriceElement.textContent = `$${(selectedSeats.length * seatPrice).toFixed(2)}`;
+        } else {
+          selectedSeatsElement.textContent = 'None';
+          totalPriceElement.textContent = '$0.00';
+        }
+      }
+    });
+  </script>
+</body>
+
+</html>
