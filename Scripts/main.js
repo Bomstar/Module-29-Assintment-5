@@ -53,6 +53,9 @@ const grandTotal = getId("grandTotal");
 const stockTickets = getId("stockTickets");
 const seatItems = getId("seatItems");
 const addSeats = getId("addSeats");
+const couponBtn = getId("couponBtn");
+const couponValue = getId("couponValue");
+const couponCont = getId("couponCont");
 let totalPrices = 0;
 let selectedSead = 0;
 let seatleft = (stockTickets.innerText = 40);
@@ -63,6 +66,11 @@ seatContainer.addEventListener("click", (e) => {
   const arrID = seatIds.includes(seatId);
   if (!arrID) {
     console.log("not match");
+    return;
+  }
+
+  if (4 <= selectedSead) {
+    alert("Your Already Selecte 4 Sead");
     return;
   }
 
@@ -97,4 +105,36 @@ seatContainer.addEventListener("click", (e) => {
                   <div>550</div>
                 </div>`;
   });
+});
+
+let couponValid = true;
+const newCoup = "NEW15";
+const coupleCoup = "Couple20";
+
+couponBtn.addEventListener("click", (e) => {
+  if (!couponValid) {
+    alert(`You Are Already Used One Coupon`);
+    return;
+  }
+
+  const userCoup = couponValue.value.trim();
+
+  if (userCoup === "") {
+    alert("Please Enter Your Coupon Code");
+    return;
+  }
+
+  if (newCoup === userCoup) {
+    const discount = (parseInt(totalPrice.innerText) * 15) / 100;
+    const grantPrice = parseInt(totalPrice.innerText) - discount;
+    grandTotal.innerText = grantPrice;
+    couponValid = false;
+  } else if (coupleCoup === userCoup) {
+    const discount = (parseInt(totalPrice.innerText) * 20) / 100;
+    const grantPrice = parseInt(totalPrice.innerText) - discount;
+    grandTotal.innerText = grantPrice;
+    couponValid = false;
+  } else {
+    alert("This Coupon Code Is Not Valid");
+  }
 });
