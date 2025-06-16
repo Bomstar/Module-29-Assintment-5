@@ -69,9 +69,14 @@ seatContainer.addEventListener("click", (e) => {
     return;
   }
 
-  if (4 <= selectedSead) {
+  if (3 < selectedSead) {
     alert("Your Already Selecte 4 Sead");
     return;
+  }
+
+  if (3 == selectedSead) {
+    couponCont.classList.remove("hidden");
+    couponCont.classList.add("flex");
   }
 
   const bgClrCheck = getId(seatId).classList.contains(
