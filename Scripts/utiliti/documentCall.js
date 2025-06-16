@@ -5,13 +5,13 @@ export function getId(id) {
 
 export function changeBackgroundColor(seatId) {
   const bgChange = getId(seatId);
-  bgChange.classList.add("!bg-primary");
+  bgChange.classList.add("!bg-primary", "text-white");
   return bgChange;
 }
 
 // function to remove the background color
 export function removeBackgroundColor(seatId) {
   const bgChange = getId(seatId);
-  bgChange.classList.remove("!bg-primary");
+  bgChange.classList.remove("!bg-primary", "text-white");
   return bgChange;
 }

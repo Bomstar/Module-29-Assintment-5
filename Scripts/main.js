@@ -46,15 +46,18 @@ const seatIds = [
   "J4",
 ];
 
-const seatContainer = getId("seatSelection");
 const ticketPrice = 550;
+const seatContainer = getId("seatSelection");
 const totalPrice = getId("totalPrice");
-let totalPrices = (totalPrice.innerText = 0);
+const grandTotal = getId("grandTotal");
 const stockTickets = getId("stockTickets");
+const seatItems = getId("seatItems");
 const addSeats = getId("addSeats");
+let totalPrices = 0;
+let selectedSead = 0;
 let seatleft = (stockTickets.innerText = 40);
-let selectedSead = (addSeats.innerText = 0);
 
+let newSeatIds = [];
 seatContainer.addEventListener("click", (e) => {
   const seatId = e.target.id;
   const arrID = seatIds.includes(seatId);
@@ -63,19 +66,35 @@ seatContainer.addEventListener("click", (e) => {
     return;
   }
 
-  const bgClrCheck = getId(seatId).classList.contains("!bg-primary");
-  if (bgClrCheck) {
-    removeBackgroundColor(seatId);
-    seatleft++;
-    selectedSead--;
-    totalPrices -= ticketPrice;
-  } else {
+  const bgClrCheck = getId(seatId).classList.contains(
+    "!bg-primary",
+    "text-white"
+  );
+  if (!bgClrCheck) {
+    seatItems.innerHTML = " ";
     changeBackgroundColor(seatId);
     seatleft--;
     selectedSead++;
     totalPrices += ticketPrice;
+    newSeatIds.push(seatId);
+  } else {
+    seatItems.innerHTML = " ";
+    removeBackgroundColor(seatId);
+    seatleft++;
+    selectedSead--;
+    totalPrices -= ticketPrice;
+    let newArr = newSeatIds.filter((id) => id != seatId);
+    newSeatIds = newArr;
   }
   stockTickets.innerText = seatleft;
   addSeats.innerText = selectedSead;
   totalPrice.innerText = totalPrices;
+  grandTotal.innerText = totalPrices;
+  newSeatIds.forEach((id) => {
+    seatItems.innerHTML += `<div class="flex justify-between py-3">
+                  <div>${id}</div>
+                  <div>Economoy</div>
+                  <div>550</div>
+                </div>`;
+  });
 });
